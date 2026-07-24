@@ -1,0 +1,10 @@
+/* =========================================================
+   GLOBAL.CSS
+   Base styles used by every page
+   ========================================================= */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "PT Serif", serif;
+}

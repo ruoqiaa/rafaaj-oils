@@ -1,0 +1,239 @@
+/* =========================================================
+   PRODUCT.CSS
+   Styles used only by product.html
+   ========================================================= */
+
+/* ---------- Delivery and payment information ---------- */
+
+body{
+    background:#F8F6F1;
+}
+
+.delivery-note {
+    font-size: 12px;
+    color: #6b6b6b;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.trust-icons {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 10px;
+    font-size: 20px;
+    color: #999;
+}
+
+/* ---------- Product accordion ---------- */
+.product-accordion {
+    font-family: "PT Serif", serif;
+    font-size: 0.9rem;
+    color: #444;
+    margin-top: 1px;
+    padding-left: 3vw;
+    padding-right: 3vw;
+}
+
+.product-accordion details {
+    border-bottom: 1px solid #e1e0dc;
+    padding: 16px 0;
+}
+
+.product-accordion summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #435635;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.product-accordion summary::after {
+    content: "+";
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #435635;
+    margin-left: 20px;
+}
+
+.product-accordion details[open] summary::after {
+    content: "-";
+}
+
+.product-accordion p,
+.product-accordion li {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #555;
+}
+
+.product-accordion p {
+    margin: 12px 0 0;
+}
+
+.product-accordion ul {
+    margin: 12px 0 0;
+    padding-left: 20px;
+}
+
+/* ---------- Full customer reviews ---------- */
+#reviews-product-page {
+    width: 100%;
+    padding: 70px 24px;
+    box-sizing: border-box;
+}
+
+#reviews-product-page > h2,
+.reviews-summary {
+    text-align: center;
+}
+
+.all-reviews-box-product {
+    width: 100%;
+    max-width: 1100px;
+    margin: 50px auto 0;
+    box-sizing: border-box;
+    border-top: 1px solid #c9c7c1;
+}
+
+.review-photo {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.review-photo img {
+    width: 250px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.review-item {
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    column-gap: 50px;
+    align-items: start;
+    padding: 34px 0;
+    border-bottom: 1px solid #c9c7c1;
+}
+
+.review-rating {
+    grid-column: 1;
+    margin: 0 0 10px;
+    font-size: 0.9rem;
+    line-height: 1;
+    letter-spacing: 0.12em;
+}
+
+.review-author {
+    grid-column: 1;
+    margin: 0;
+    color: #171717;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.76rem;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+}
+
+.review-text {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    max-width: 850px;
+    margin: 0;
+    color: #383838;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.98rem;
+    font-weight: 400;
+    line-height: 1.75;
+    overflow-wrap: anywhere;
+}
+
+.review-item.review-hidden {
+    display: none;
+}
+
+#load-more-reviews {
+    display: block;
+    margin: 35px auto 0;
+    padding: 13px 30px;
+    border: 1px solid #435635;
+    border-radius: 4px;
+    background-color: #435635;
+    color: #ffffff;
+    font-family: "PT Serif", serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#load-more-reviews:hover {
+    background-color: transparent;
+    color: #435635;
+}
+
+#load-more-reviews:focus-visible {
+    outline: 2px solid #435635;
+    outline-offset: 4px;
+}
+
+@media (max-width: 800px) {
+    .review-item {
+        grid-template-columns: 145px minmax(0, 1fr);
+        column-gap: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .review-item {
+        display: block;
+        padding: 26px 0;
+    }
+
+    .review-rating {
+        margin-bottom: 9px;
+    }
+
+    .review-author {
+        margin-bottom: 18px;
+    }
+
+    .review-text {
+        max-width: none;
+        font-size: 0.94rem;
+        line-height: 1.65;
+    }
+}
+.review-photo {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin: 40px 0;
+    padding-bottom: 8px;
+
+    scrollbar-width: none;
+}
+
+.review-photo::-webkit-scrollbar {
+    display: none;
+}
+
+.review-photo img,
+.review-photo video {
+    width: 220px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+    flex: 0 0 220px;
+}
+
+

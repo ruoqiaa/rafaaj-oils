@@ -1,0 +1,287 @@
+/* ==========================================================================
+   3. HERO SECTION
+   ========================================================================== */
+#hero {
+    position: relative;
+    min-height: 75vh; 
+    background-image: url("6-new-hero.PNG");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-info {
+    max-width: 600px;
+    padding-left: 80px;
+    padding-top: 5vh; 
+}
+
+#hero h1 {
+    color: #435635;
+     font-family: "PT Serif", serif;
+    font-weight: 500;
+    font-size: 3.5rem;
+}
+
+.hero-word-natural {
+    color: #a62b2b;
+}
+
+#hero h2 {
+    color: #435635;
+     font-family: "PT Serif", serif;
+    font-weight: 300;
+    font-size: 1rem;
+    padding-bottom: 1vh;
+    max-width: 60%;
+}
+
+.hero-benefits {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;                               
+    padding-bottom: 3vh; 
+    flex-wrap: nowrap;     
+    width: max-content;    
+}
+
+.benefit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.benefit i {
+    font-size: 1.5rem;
+    color: #435635;
+    margin-bottom: 10px;
+}
+
+.benefit p {
+    margin: 0;
+     font-family: "PT Serif", serif;
+    font-size: 0.8rem;
+    color: #435635;
+    font-weight: 500;
+}
+
+.btn-shop-now {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.btn-shop-now a {
+    text-decoration: none;
+    background-color: #435635;
+    color: white;
+    padding: 11px 26px;
+    border-radius: 4px;
+     font-family: "PT Serif", serif;
+}
+
+.hero-measure {
+    color: #435635;
+    font-family: "PT Serif", serif;
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+/* ==========================================================================
+   4. BENEFITS BANNER
+   ========================================================================== */
+.benefits-banner {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #f4f3eb;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 30px 40px;
+    border-radius: 8px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.feature-item i {
+    font-size: 2.2rem;
+    color: #435635;
+}
+
+.feature-item p {
+     font-family: "PT Serif", serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #435635;
+    margin: 0;
+    line-height: 1.5;
+}
+
+#ingredients-boxes {
+  padding: 2rem 1.5rem; /* adds equal breathing room on both sides */
+  text-align: center;
+}
+
+.ingredients-section h2 {
+  font-family: "PT Serif", serif;
+  color: #435635;
+  font-size: 1.5rem;
+}
+
+.ingredients-section h3 {
+  font-family: "PT Serif", serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding-bottom: 2vh;
+}
+
+.ingredients-row {
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 8px;
+  justify-content: center; /* centers cards when there's enough space */
+}
+
+/* optional: style the scrollbar */
+.ingredients-row::-webkit-scrollbar { height: 4px; }
+.ingredients-row::-webkit-scrollbar-thumb { background: #d4a017; border-radius: 2px; }
+
+.ingredients-row > div {
+  width: 150px;
+  flex-shrink: 0;          /* keeps cards from squishing */
+  background: #fff;
+  border: 0.5px solid #d4a017;
+  border-radius: 12px;
+  padding: 1rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.ingredients-row img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 1.5px solid #d4a017;
+  object-fit: cover;
+}
+
+.ingredients-row h4 {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.04em;
+  color:#435635
+}
+
+.ingredients-row p {
+  font-size: 12px;
+  color: #000000;
+  margin: 0;
+  line-height: 1.5;
+}
+
+
+#reviews {
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+#reviews h2 {
+  margin: 0 0 1.25rem;
+  color: #435635;
+  padding-bottom: 3cqh;
+}
+
+.review-boxes {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  flex-wrap: nowrap;        /* was wrap */
+  overflow-x: auto;         /* enables horizontal scroll */
+  
+  padding-bottom: 8px;      /* stops scrollbar from clipping box shadow/border */
+}
+
+.review-boxes > div {
+  border: 0.5px solid #d4a017;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;  /* slightly reduced padding too */
+  width: 220px;           /* was 280px */
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  
+}
+
+.review-boxes {
+  scrollbar-width: none; /* Firefox */
+}
+.review-boxes::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+/* gold stars */
+.review-boxes > div p:first-child {
+  color: #d4a017;
+  font-size: 18px;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.review-boxes > div p {
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.view-reviews-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 2rem;
+  background-color: #435635;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 200;
+  letter-spacing: 0.5px;
+  transition: background-color 0.2s ease;
+}
+
+.view-reviews-btn:hover {
+  background-color: #435635;
+}
+
+
+#reviews h2 {
+  margin: 0 0 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+}
+
+#reviews h2::before,
+#reviews h2::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background-color: #d4a017;
+}
+
+.btn-shop-now-btn h2:hover {
+    text-decoration: underline;
+}
