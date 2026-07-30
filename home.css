@@ -38,11 +38,16 @@
 
 .hero-benefits {
     display: flex;
-    gap: 40px;
-    margin-top: 20px;                               
-    padding-bottom: 3vh; 
-    flex-wrap: nowrap;     
-    width: max-content;    
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+@media (max-width: 768px) {
+    .hero-benefits {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
 }
 
 .benefit {
