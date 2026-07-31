@@ -10,18 +10,25 @@
     background-repeat: no-repeat;
 }
 @media (max-width: 768px) {
+
     #hero {
-        background-size: auto 100%;
-        background-position: center;
-        min-height: 100vh;
+        min-height: auto;
+        padding-bottom: 40px;
+        background-size: contain;
+        background-position: top center;
     }
+
 }
 
 @media (max-width: 768px) {
-    #hero {
-        min-height: 100vh;
+
+    .hero-info {
+        padding: 40px 20px;
+        max-width: 100%;
     }
+
 }
+
 .hero-info {
     max-width: 600px;
     padding-left: 80px;
