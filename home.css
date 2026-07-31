@@ -291,29 +291,3 @@
     text-decoration: underline;
 }
 
-
-* {
-    outline: 1px solid red;
-}
-
-@media (max-width: 768px) {
-    .hero-info {
-        max-width: 100%;
-        padding: 40px 20px;
-        box-sizing: border-box;
-    }
-}
-
-#hero h1 {
-    font-size: 2.2rem;
-}
-#hero h2 {
-    max-width: 100%;
-}
-
-@media (max-width:768px) {
-    .benefits-banner {
-        flex-direction: column;
-        gap: 20px;
-    }
-}
