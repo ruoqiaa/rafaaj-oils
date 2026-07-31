@@ -9,7 +9,18 @@
     background-position: center;
     background-repeat: no-repeat;
 }
+@media (max-width: 768px) {
+    #hero {
+        background-size: cover;
+        background-position: center;
+    }
+}
 
+@media (max-width: 768px) {
+    #hero {
+        min-height: 100vh;
+    }
+}
 .hero-info {
     max-width: 600px;
     padding-left: 80px;
