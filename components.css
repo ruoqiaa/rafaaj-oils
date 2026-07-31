@@ -384,6 +384,17 @@
     margin: 0;
 }
 
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    #footer {
+        padding: 40px 20px;
+    }
+}
+
 @media (max-width: 800px) {
   .product-showcase {
     display: flex;

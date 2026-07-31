@@ -8,3 +8,7 @@ body {
     padding: 0;
     font-family: "PT Serif", serif;
 }
+
+html, body {
+    overflow-x: hidden;
+}
