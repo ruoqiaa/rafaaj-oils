@@ -4,20 +4,18 @@
 #hero {
     position: relative;
     min-height: 75vh; 
+
     background-image: url("6-new-hero.PNG");
-    background-size: cover;
+    background-size: 100% auto;
+
     background-position: center;
     background-repeat: no-repeat;
 }
-@media (max-width: 768px) {
-
+@media (max-width:768px){
     #hero {
-        min-height: auto;
-        padding-bottom: 40px;
         background-size: contain;
-        background-position: top center;
+        background-repeat: no-repeat;
     }
-
 }
 
 @media (max-width: 768px) {
