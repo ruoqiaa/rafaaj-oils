@@ -1,30 +1,39 @@
 /* ==========================================================================
-   3. HERO SECTION
+   2. HERO SECTION
    ========================================================================== */
 #hero {
     position: relative;
-    min-height: 75vh;
+    width: 100%;
+    /* Padding-based height prevents iOS Safari vh rendering bugs */
+    padding: 80px 5% 100px 5%;
+    box-sizing: border-box;
 
     background-image: url("6-new-hero.PNG");
-    background-size: 100% auto;
-
-    background-position: center;
+    /* cover guarantees the background always fills the box without shrinking or white gaps */
+    background-size: cover;
+    background-position: center right;
     background-repeat: no-repeat;
+    
+    display: flex;
+    align-items: center;
+    min-height: 75vh;
 }
 
 .hero-info {
-    max-width: 600px;
-    padding-left: 80px;
-    padding-top: 5vh;
-    box-sizing: border-box; /* padding no longer adds to width, prevents overflow */
+    max-width: 580px;
+    width: 100%;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 #hero h1 {
     color: #435635;
     font-family: "PT Serif", serif;
     font-weight: 500;
-    font-size: clamp(1.8rem, 6vw, 3.5rem); /* scales smoothly instead of jumping at 768px */
+    /* Scales fluidly across screen sizes so it never overflows */
+    font-size: clamp(1.75rem, 4.5vw, 3.2rem);
     line-height: 1.15;
+    margin: 0 0 16px 0;
 }
 
 .hero-word-natural {
@@ -35,9 +44,10 @@
     color: #435635;
     font-family: "PT Serif", serif;
     font-weight: 300;
-    font-size: 1rem;
-    padding-bottom: 1vh;
-    max-width: 60%;
+    font-size: clamp(0.9rem, 2vw, 1.05rem);
+    line-height: 1.5;
+    margin: 0 0 24px 0;
+    max-width: 100%;
 }
 
 .hero-benefits {
@@ -45,6 +55,7 @@
     gap: 20px;
     flex-wrap: wrap;
     width: 100%;
+    margin-bottom: 28px;
 }
 
 .benefit {
@@ -55,68 +66,80 @@
 }
 
 .benefit i {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: #435635;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .benefit p {
     margin: 0;
     font-family: "PT Serif", serif;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: #435635;
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: 0.02em;
 }
 
 .btn-shop-now {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 20px 30px;
+    gap: 15px 24px;
 }
 
 .btn-shop-now a {
     text-decoration: none;
     background-color: #435635;
     color: white;
-    padding: 11px 26px;
+    padding: 12px 28px;
     border-radius: 4px;
     font-family: "PT Serif", serif;
     white-space: nowrap;
+    font-size: 0.95rem;
+    transition: background-color 0.2s ease;
+}
+
+.btn-shop-now a:hover {
+    background-color: #324127;
 }
 
 .hero-measure {
     color: #435635;
     font-family: "PT Serif", serif;
     font-weight: 300;
-    font-size: 1rem;
+    font-size: 0.95rem;
 }
 
 /* ==========================================================================
-   4. BENEFITS BANNER
+   3. BENEFITS BANNER
    ========================================================================== */
 .benefits-banner {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
+    width: 100%;
     background-color: #f4f3eb;
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 30px 40px;
-    border-radius: 8px;
+    margin: 0;
+    padding: 30px 5%;
+    box-sizing: border-box;
+    
+    /* Responsive Grid: 4 columns across on desktop */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+    
+    border-top: 1px solid rgba(67, 86, 53, 0.12);
+    border-bottom: 1px solid rgba(67, 86, 53, 0.12);
 }
 
 .feature-item {
     display: flex;
     align-items: center;
-    gap: 15px;
+    justify-content: center;
+    gap: 12px;
 }
 
 .feature-item i {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     color: #435635;
+    flex-shrink: 0;
 }
 
 .feature-item p {
@@ -125,222 +148,228 @@
     font-weight: 500;
     color: #435635;
     margin: 0;
-    line-height: 1.5;
+    line-height: 1.35;
 }
 
+/* ==========================================================================
+   4. INGREDIENTS SECTION
+   ========================================================================== */
 #ingredients-boxes {
-  padding: 2rem 1.5rem; /* adds equal breathing room on both sides */
-  text-align: center;
+    padding: 3rem 1.5rem;
+    text-align: center;
 }
 
 .ingredients-section h2 {
-  font-family: "PT Serif", serif;
-  color: #435635;
-  font-size: 1.5rem;
+    font-family: "PT Serif", serif;
+    color: #435635;
+    font-size: 1.5rem;
 }
 
 .ingredients-section h3 {
-  font-family: "PT Serif", serif;
-  font-size: 0.9rem;
-  font-weight: 500;
-  padding-bottom: 2vh;
+    font-family: "PT Serif", serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding-bottom: 2vh;
 }
 
 .ingredients-row {
-  display: flex;
-  gap: 22px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  padding-bottom: 8px;
-  justify-content: center; /* centers cards when there's enough space */
+    display: flex;
+    gap: 22px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 12px;
+    justify-content: center;
 }
 
-/* optional: style the scrollbar */
-.ingredients-row::-webkit-scrollbar { height: 4px; }
-.ingredients-row::-webkit-scrollbar-thumb { background: #d4a017; border-radius: 2px; }
+.ingredients-row::-webkit-scrollbar { 
+    height: 4px; 
+}
+
+.ingredients-row::-webkit-scrollbar-thumb { 
+    background: #d4a017; 
+    border-radius: 2px; 
+}
 
 .ingredients-row > div {
-  width: 150px;
-  flex-shrink: 0;          /* keeps cards from squishing */
-  background: #fff;
-  border: 0.5px solid #d4a017;
-  border-radius: 12px;
-  padding: 1rem 0.75rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 10px;
+    width: 150px;
+    flex-shrink: 0;
+    background: #fff;
+    border: 0.5px solid #d4a017;
+    border-radius: 12px;
+    padding: 1rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
 }
 
 .ingredients-row img {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  border: 1.5px solid #d4a017;
-  object-fit: cover;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 1.5px solid #d4a017;
+    object-fit: cover;
 }
 
 .ingredients-row h4 {
-  font-size: 13px;
-  font-weight: 600;
-  margin: 0;
-  letter-spacing: 0.04em;
-  color:#435635
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: 0.04em;
+    color: #435635;
 }
 
 .ingredients-row p {
-  font-size: 12px;
-  color: #000000;
-  margin: 0;
-  line-height: 1.5;
+    font-size: 12px;
+    color: #000000;
+    margin: 0;
+    line-height: 1.5;
 }
 
-
+/* ==========================================================================
+   5. REVIEWS SECTION
+   ========================================================================== */
 #reviews {
-  padding: 2rem 1.5rem;
-  text-align: center;
+    padding: 3rem 1.5rem;
+    text-align: center;
 }
 
 #reviews h2 {
-  margin: 0 0 1.25rem;
-  color: #435635;
-  padding-bottom: 3cqh;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  white-space: nowrap;
+    margin: 0 0 1.25rem;
+    color: #435635;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap;
 }
 
 #reviews h2::before,
 #reviews h2::after {
-  content: '';
-  flex: 1;
-  height: 2px;
-  background-color: #d4a017;
+    content: '';
+    flex: 1;
+    height: 2px;
+    background-color: #d4a017;
 }
 
 .review-boxes {
-  display: flex;
-  gap: 50px;
-  justify-content: center;
-  flex-wrap: nowrap;        /* was wrap */
-  overflow-x: auto;         /* enables horizontal scroll */
-  padding-bottom: 8px;      /* stops scrollbar from clipping box shadow/border */
-  scrollbar-width: none; /* Firefox */
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    scrollbar-width: none;
 }
+
 .review-boxes::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
+    display: none;
 }
 
 .review-boxes > div {
-  border: 0.5px solid #d4a017;
-  border-radius: 12px;
-  padding: 1rem 1.25rem;  /* slightly reduced padding too */
-  width: 220px;           /* was 280px */
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 10px;
+    border: 0.5px solid #d4a017;
+    border-radius: 12px;
+    padding: 1.25rem;
+    width: 240px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
 }
 
-/* gold stars */
 .review-boxes > div p:first-child {
-  color: #d4a017;
-  font-size: 18px;
-  letter-spacing: 2px;
-  margin: 0;
+    color: #d4a017;
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin: 0;
 }
 
 .review-boxes > div p {
-  font-size: 13px;
-  line-height: 1.6;
-  margin: 0;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 0;
 }
 
 .view-reviews-btn {
-  display: inline-block;
-  margin-top: 1.5rem;
-  padding: 0.75rem 2rem;
-  background-color: #435635;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 200;
-  letter-spacing: 0.5px;
-  transition: background-color 0.2s ease;
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.75rem 2rem;
+    background-color: #435635;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 200;
+    letter-spacing: 0.5px;
+    transition: background-color 0.2s ease;
 }
 
 .view-reviews-btn:hover {
-  background-color: #435635;
-}
-
-.btn-shop-now-btn h2:hover {
-    text-decoration: underline;
+    background-color: #324127;
 }
 
 /* ==========================================================================
-   MOBILE OVERRIDES â€” kept LAST on purpose.
-   Rules of equal specificity are decided by source order, so anything meant
-   to override a desktop rule above must live down here, or it silently loses.
+   6. MOBILE & TABLET OVERRIDES (Targeted for iPhone Fixes)
    ========================================================================== */
 @media (max-width: 768px) {
 
     #hero {
-        min-height: 60vh;
-        background-size: contain;
-        background-repeat: no-repeat;
+        min-height: auto;
+        padding: 40px 16px 50px 16px;
+        background-position: center center;
     }
 
     .hero-info {
-        padding: 40px 20px;
-        max-width: 100%;
-    }
-
-    #hero h2 {
-        max-width: 100%;   /* was 60% â€” far too narrow on a phone, was forcing overflow/clipping */
-        font-size: 0.95rem;
+        /* Adds a frosted translucent backing so dark/light text remains 100% readable over the photo */
+        background: rgba(255, 255, 255, 0.88);
+        padding: 24px 20px;
+        border-radius: 10px;
+        backdrop-filter: blur(4px);
     }
 
     .hero-benefits {
-        justify-content: center;
-        gap: 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2x2 grid on phone screens */
+        gap: 16px 10px;
     }
 
     .btn-shop-now {
         justify-content: center;
-        gap: 12px 20px;
     }
 
+    /* Convert banner from single horizontal row into a clean 2x2 grid on mobile */
     .benefits-banner {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 24px 30px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px 12px;
+        padding: 24px 16px;
+    }
+
+    .feature-item {
+        justify-content: flex-start;
+    }
+
+    .ingredients-row {
+        justify-content: flex-start; /* Enables natural swipe scrolling on touch devices */
     }
 
     .ingredients-row > div {
-        width: 130px;
+        width: 135px;
+    }
+
+    .review-boxes {
+        justify-content: flex-start;
     }
 
     .review-boxes > div {
-        width: 190px;
+        width: 200px;
     }
 }
 
-@media (max-width: 420px) {
-    /* smallest iPhones (SE, mini) need one more notch down */
-    .hero-info {
-        padding: 32px 16px;
-    }
-
-    .hero-benefits {
-        gap: 14px;
-    }
-
-    .benefit p {
-        font-size: 0.7rem;
+@media (max-width: 380px) {
+    /* Tight mobile displays (e.g. iPhone SE) */
+    .benefits-banner {
+        grid-template-columns: 1fr; /* Stacks to single column on very small screens */
     }
 }
