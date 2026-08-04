@@ -114,19 +114,22 @@
    3. BENEFITS BANNER
    ========================================================================== */
 .benefits-banner {
-    width: 100%;
+    /* Changed from full width to max-width with auto-margin for rounding */
+    max-width: 1300px;
+    width: 90%; /* Leaves slight gap on side before hitting max-width */
     background-color: #f4f3eb;
-    margin: 0;
+    margin: 0 auto 40px auto; /* Centers horizontally and adds space below */
     padding: 30px 5%;
     box-sizing: border-box;
     
+    /* ADDED BORDER RADIUS */
+    border-radius: 12px;
+    border: 1px solid rgba(67, 86, 53, 0.12); /* Subtle full border instead of just top/bottom */
+
     /* Responsive Grid: 4 columns across on desktop */
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    
-    border-top: 1px solid rgba(67, 86, 53, 0.12);
-    border-bottom: 1px solid rgba(67, 86, 53, 0.12);
 }
 
 .feature-item {
@@ -322,28 +325,37 @@
     }
 
     .hero-info {
-        /* Adds a frosted translucent backing so dark/light text remains 100% readable over the photo */
-        background: rgba(255, 255, 255, 0.88);
-        padding: 24px 20px;
-        border-radius: 10px;
-        backdrop-filter: blur(4px);
+        /* REMOVED: White background box and padding */
+        background: none;
+        padding: 0;
+        border-radius: 0;
+        backdrop-filter: none;
+        text-align: left; /* Keep text left aligned like desktop */
     }
 
     .hero-benefits {
         display: grid;
         grid-template-columns: repeat(2, 1fr); /* 2x2 grid on phone screens */
         gap: 16px 10px;
+        justify-content: start;
+    }
+
+    .benefit {
+        align-items: flex-start; /* Align icons and text to left */
+        text-align: left;
     }
 
     .btn-shop-now {
-        justify-content: center;
+        justify-content: flex-start; /* Keep button left aligned */
     }
 
-    /* Convert banner from single horizontal row into a clean 2x2 grid on mobile */
+    /* Banner styling for mobile - keep rounding */
     .benefits-banner {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px 12px;
         padding: 24px 16px;
+        width: 92%; /* Slight side margin on mobile */
+        margin-bottom: 30px;
     }
 
     .feature-item {
