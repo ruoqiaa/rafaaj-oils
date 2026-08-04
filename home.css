@@ -3,7 +3,7 @@
    ========================================================================== */
 #hero {
     position: relative;
-    min-height: 75vh; 
+    min-height: 75vh;
 
     background-image: url("6-new-hero.PNG");
     background-size: 100% auto;
@@ -11,33 +11,20 @@
     background-position: center;
     background-repeat: no-repeat;
 }
-@media (max-width:768px){
-    #hero {
-        background-size: contain;
-        background-repeat: no-repeat;
-    }
-}
-
-@media (max-width: 768px) {
-
-    .hero-info {
-        padding: 40px 20px;
-        max-width: 100%;
-    }
-
-}
 
 .hero-info {
     max-width: 600px;
     padding-left: 80px;
-    padding-top: 5vh; 
+    padding-top: 5vh;
+    box-sizing: border-box; /* padding no longer adds to width, prevents overflow */
 }
 
 #hero h1 {
     color: #435635;
-     font-family: "PT Serif", serif;
+    font-family: "PT Serif", serif;
     font-weight: 500;
-    font-size: 3.5rem;
+    font-size: clamp(1.8rem, 6vw, 3.5rem); /* scales smoothly instead of jumping at 768px */
+    line-height: 1.15;
 }
 
 .hero-word-natural {
@@ -46,7 +33,7 @@
 
 #hero h2 {
     color: #435635;
-     font-family: "PT Serif", serif;
+    font-family: "PT Serif", serif;
     font-weight: 300;
     font-size: 1rem;
     padding-bottom: 1vh;
@@ -58,13 +45,6 @@
     gap: 20px;
     flex-wrap: wrap;
     width: 100%;
-}
-@media (max-width: 768px) {
-    .hero-benefits {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-    }
 }
 
 .benefit {
@@ -82,7 +62,7 @@
 
 .benefit p {
     margin: 0;
-     font-family: "PT Serif", serif;
+    font-family: "PT Serif", serif;
     font-size: 0.8rem;
     color: #435635;
     font-weight: 500;
@@ -91,7 +71,8 @@
 .btn-shop-now {
     display: flex;
     align-items: center;
-    gap: 30px;
+    flex-wrap: wrap;
+    gap: 20px 30px;
 }
 
 .btn-shop-now a {
@@ -100,7 +81,8 @@
     color: white;
     padding: 11px 26px;
     border-radius: 4px;
-     font-family: "PT Serif", serif;
+    font-family: "PT Serif", serif;
+    white-space: nowrap;
 }
 
 .hero-measure {
@@ -117,11 +99,13 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
     background-color: #f4f3eb;
     max-width: 1100px;
     margin: 40px auto;
     padding: 30px 40px;
     border-radius: 8px;
+    gap: 20px;
 }
 
 .feature-item {
@@ -136,7 +120,7 @@
 }
 
 .feature-item p {
-     font-family: "PT Serif", serif;
+    font-family: "PT Serif", serif;
     font-size: 0.85rem;
     font-weight: 500;
     color: #435635;
@@ -222,6 +206,18 @@
   margin: 0 0 1.25rem;
   color: #435635;
   padding-bottom: 3cqh;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+}
+
+#reviews h2::before,
+#reviews h2::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background-color: #d4a017;
 }
 
 .review-boxes {
@@ -230,8 +226,11 @@
   justify-content: center;
   flex-wrap: nowrap;        /* was wrap */
   overflow-x: auto;         /* enables horizontal scroll */
-  
   padding-bottom: 8px;      /* stops scrollbar from clipping box shadow/border */
+  scrollbar-width: none; /* Firefox */
+}
+.review-boxes::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
 }
 
 .review-boxes > div {
@@ -245,14 +244,6 @@
   align-items: center;
   text-align: center;
   gap: 10px;
-  
-}
-
-.review-boxes {
-  scrollbar-width: none; /* Firefox */
-}
-.review-boxes::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
 }
 
 /* gold stars */
@@ -287,24 +278,69 @@
   background-color: #435635;
 }
 
-
-#reviews h2 {
-  margin: 0 0 1.25rem;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  white-space: nowrap;
-}
-
-#reviews h2::before,
-#reviews h2::after {
-  content: '';
-  flex: 1;
-  height: 2px;
-  background-color: #d4a017;
-}
-
 .btn-shop-now-btn h2:hover {
     text-decoration: underline;
 }
 
+/* ==========================================================================
+   MOBILE OVERRIDES â€” kept LAST on purpose.
+   Rules of equal specificity are decided by source order, so anything meant
+   to override a desktop rule above must live down here, or it silently loses.
+   ========================================================================== */
+@media (max-width: 768px) {
+
+    #hero {
+        min-height: 60vh;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .hero-info {
+        padding: 40px 20px;
+        max-width: 100%;
+    }
+
+    #hero h2 {
+        max-width: 100%;   /* was 60% â€” far too narrow on a phone, was forcing overflow/clipping */
+        font-size: 0.95rem;
+    }
+
+    .hero-benefits {
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .btn-shop-now {
+        justify-content: center;
+        gap: 12px 20px;
+    }
+
+    .benefits-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px 30px;
+    }
+
+    .ingredients-row > div {
+        width: 130px;
+    }
+
+    .review-boxes > div {
+        width: 190px;
+    }
+}
+
+@media (max-width: 420px) {
+    /* smallest iPhones (SE, mini) need one more notch down */
+    .hero-info {
+        padding: 32px 16px;
+    }
+
+    .hero-benefits {
+        gap: 14px;
+    }
+
+    .benefit p {
+        font-size: 0.7rem;
+    }
+}
