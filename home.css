@@ -118,7 +118,7 @@
     max-width: 1300px;
     width: 90%; /* Leaves slight gap on side before hitting max-width */
     background-color: #f4f3eb;
-    margin: 0 auto 40px auto; /* Centers horizontally and adds space below */
+    margin: 40px auto 40px auto;
     padding: 30px 5%;
     box-sizing: border-box;
     
@@ -383,5 +383,17 @@
     /* Tight mobile displays (e.g. iPhone SE) */
     .benefits-banner {
         grid-template-columns: 1fr; /* Stacks to single column on very small screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .benefits-banner {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px 12px;
+        padding: 24px 16px;
+        width: 92%;
+        
+        /* Spacing for mobile screens */
+        margin: 25px auto 30px auto;
     }
 }
