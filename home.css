@@ -312,49 +312,48 @@
 .view-reviews-btn:hover {
     background-color: #324127;
 }
-
 /* ==========================================================================
-   6. MOBILE & TABLET OVERRIDES (Targeted for iPhone Fixes)
+   6. MOBILE OVERRIDES (Triggers strictly on phone screens under 480px)
    ========================================================================== */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
 
     #hero {
         min-height: auto;
         padding: 40px 16px 50px 16px;
         background-position: center center;
+        margin-bottom: 30px !important;
     }
 
     .hero-info {
-        /* REMOVED: White background box and padding */
         background: none;
         padding: 0;
         border-radius: 0;
         backdrop-filter: none;
-        text-align: left; /* Keep text left aligned like desktop */
+        text-align: left;
     }
 
+    /* Switches to 2x2 grid strictly on narrow phone screens */
     .hero-benefits {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 2x2 grid on phone screens */
+        grid-template-columns: repeat(2, 1fr);
         gap: 16px 10px;
         justify-content: start;
     }
 
     .benefit {
-        align-items: flex-start; /* Align icons and text to left */
+        align-items: flex-start;
         text-align: left;
     }
 
     .btn-shop-now {
-        justify-content: flex-start; /* Keep button left aligned */
+        justify-content: flex-start;
     }
 
-    /* Banner styling for mobile - keep rounding */
     .benefits-banner {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px 12px;
         padding: 24px 16px;
-        width: 92%; /* Slight side margin on mobile */
+        width: 92%;
         margin-bottom: 30px;
     }
 
@@ -363,7 +362,7 @@
     }
 
     .ingredients-row {
-        justify-content: flex-start; /* Enables natural swipe scrolling on touch devices */
+        justify-content: flex-start;
     }
 
     .ingredients-row > div {
