@@ -65,19 +65,42 @@
     text-align: center;
 }
 
+/* Update these rules in your CSS */
+
 .benefit i {
-    font-size: 1.4rem;
+    /* Fluid icon sizing: ranges smoothly from 1.1rem up to 1.4rem */
+    font-size: clamp(1.1rem, 3.5vw, 1.4rem);
     color: #435635;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .benefit p {
     margin: 0;
     font-family: "PT Serif", serif;
-    font-size: 0.75rem;
+    /* Fluid text sizing: scales down dynamically on mobile from 0.75rem to 0.65rem */
+    font-size: clamp(0.65rem, 2.2vw, 0.75rem);
     color: #435635;
     font-weight: 600;
     letter-spacing: 0.02em;
+    line-height: 1.25;
+}
+
+/* Ensure mobile rules keep the clean proportion */
+@media (max-width: 480px) {
+    .hero-benefits {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px 10px; /* Slightly tighter gap for mobile */
+        justify-content: start;
+    }
+
+    .benefit i {
+        font-size: 1.1rem; /* Tidy icon size on phones */
+    }
+
+    .benefit p {
+        font-size: 0.68rem; /* Perfectly proportioned text size on phones */
+    }
 }
 
 .btn-shop-now {
